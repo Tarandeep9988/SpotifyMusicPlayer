@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: black;
+    color: white;
+    overflow: hidden;
+    user-select: none;
+}
+.container {
+    height: 100vh;
+}
+.left {
+    width: 25vw;
+    padding: 10px;
+    height: 100%;
+}
+.right {
+    width: 75vw;
+    padding: 10px;
+}
+
+.home ul li {
+    width: 20px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+.home ul {
+    padding-left: 10px;
+}
+.home, .library {
+    padding: 10px;
+}
+.library {
+    margin-top: 10px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.left .heading img {
+    width: 30px;
+}
+.left .heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+.song-box {
+    flex-grow: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.song-entry {
+    border: 2px solid white;
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.song-title {
+    width: 250px;
+    overflow: hidden;
+}
+.song-entry > img {
+    width: 40px;
+}
+
+
+.left .footer {
+    display: flex;
+    font-size: 10px;
+    gap: 10px;
+    justify-content: space-between;
+}
+.left .footer a{
+    color: grey;
+}
+.left .footer span {
+    font-size: 10px;
+}
+.right {
+    height: 100%;
+    box-sizing: border-box;
+}
+.area {
+    height: 100%;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+.nav img {
+    height: 30px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    margin: -10px;
+    margin-bottom: 10px;
+    
+}
+.header > * {
+    padding: 20px;
+}
+.spotify-playlist {
+    margin-top: -10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.spotify-playlist h1 {
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+
+.card-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-height: 70vh;
+    min-height: 400px;
+    overflow: auto;
+}
+
+.card {
+    height: 250px;
+    width: 200px;
+    padding: 10px;
+    background-color: #282828;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card img {
+    width: 100%;  
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.card h3 {
+    font-size: 22px;
+    font-weight: 900;
+}
+.play-button {
+    opacity: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #1DDF65;
+    position: absolute;
+    top: 150px;
+    right: 37px;
+    height: 40px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition-property: transform, opacity;
+    transition-duration: 0.25s;
+}
+.play-button:hover {
+    transform: scale(115%);
+}
+.card:hover .play-button {
+    opacity: 1;
+} 
+
+.playbar {
+    box-sizing: border-box;
+    background-color: #222222;
+    position: absolute;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 20px;
+    gap: 10px;
+}
+.playbar .song-name {
+    border: 2px solid blue;
+    width: 100%;
+    font-size: 14px;
+}
+.seek-and-time {
+    width: 100%;
+}
+.seekbar {
+    border: 1px solid white;
+    width: 100%;
+    position: relative;
+    height: 2px;
+    display: flex;
+    align-items: center;
+}
+.thumb {
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    position: absolute; 
+    transform: translateX(-8px);  
+    cursor: pointer; 
+}
+
+
+.control-btns > img {
+    width: 30px;
+}
+.control-btns > img:hover {
+    cursor: pointer;
+}

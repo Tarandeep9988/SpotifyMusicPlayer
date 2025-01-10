@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
+    <link rel="icon" sizes="32x32" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png">
+  </head>
+  <body>
+    <div class="container flex">
+      <div class="left">
+        <div class="home bg-grey rounded">
+          <img src="./images/logo.svg" alt="logo" class="invert" />
+          <ul>
+            <li>
+              <img src="./images/home.svg" alt="home" class="invert" /> Home
+            </li>
+            <li>
+              <img src="./images/search.svg" alt="search" class="invert" />
+              Search
+            </li>
+          </ul>
+        </div>
+        <div class="library bg-grey rounded">
+          <div class="heading">
+            <img src="./images/library.svg" alt="library" class="invert" />
+            <h2>Your library</h2>
+          </div>
+          <div class="song-box">
+            <!-- <span class="song-entry">
+                <img src="./images/songIcon.svg" alt="song-icon" class="invert">
+                <span>1</span>
+                <span class="song-title">Song title</span>
+                <span>Play Now</span>
+                <img src="./images/playIcon.svg" alt="play-icon" class="invert">
+            </span> -->
+          </div>
+          <div class="footer">
+            <a href="https://www.spotify.com/in-en/legal/">
+              <span>Legal</span>
+            </a>
+            <a href="https://www.spotify.com/in-en/safetyandprivacy/">
+              <span>Safety &amp; Privacy Center</span>
+            </a>
+            <a href="https://www.spotify.com/in-en/legal/privacy-policy/">
+              <span>Privacy Policy</span>
+            </a>
+            <a href="https://www.spotify.com/in-en/legal/cookies-policy/">
+              <span>Cookies</span>
+            </a>
+            <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">
+              <span>About Ads</span>
+            </a>
+            <a href="https://www.spotify.com/in-en/accessibility/">
+              <span>Accessibility</span>
+            </a>
+            <a
+              href="https://www.spotify.com/legal/cookies-policy/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Cookies</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="area bg-grey rounded">
+            <div class="header">
+                <div class="nav">
+                    <img class="invert" src="./images/left.svg" alt="left_icon">
+                    <img class="invert" src="./images/right.svg" alt="right_icon">
+                </div>
+                <div class="buttons">
+                    <button>Signup</button>
+                    <button>Login</button>
+                </div>
+            </div>
+            <div class="spotify-playlist">
+                <h1>Spotify Playlist</h1>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnDA_lwlXCJR85nfDIaFMu_g0k_HQJSB4eBg&s">
+                        <button class="play-button">
+                            <img src="./images/playIcon.svg" alt="playIcon">
+                        </button>
+                        <h3>Title</h3>
+                        <p>content</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnDA_lwlXCJR85nfDIaFMu_g0k_HQJSB4eBg&s">
+                        <button class="play-button">
+                            <img src="./images/playIcon.svg" alt="playIcon">
+                        </button>
+                        <h3>Title</h3>
+                        <p>content</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnDA_lwlXCJR85nfDIaFMu_g0k_HQJSB4eBg&s">
+                        <button class="play-button">
+                            <img src="./images/playIcon.svg" alt="playIcon">
+                        </button>
+                        <h3>Title</h3>
+                        <p>content</p>
+                    </div>
+                </div>
+            </div>
+            <div class="playbar">
+                <div  class="song-name">Here song name will be displayed</div>
+                <div class="control-btns">
+                    <img class="invert" src="./images/pre.svg" alt="pre-btn">
+                    <img id="play-pause-btn" class="invert" src="./images/pause-circle.svg" alt="play-pause-btn">
+                    <img class="invert" src="./images/next.svg" alt="">
+                </div>
+                <div class="seek-and-time">
+                  <div class="seekbar">
+                    <div class="thumb"></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
