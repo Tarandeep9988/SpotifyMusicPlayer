@@ -100,3 +100,32 @@ async function main() {
 }
 
 main();
+
+
+
+
+
+
+// code for hamburger functionality
+const sideBar = document.querySelector('.left');
+const hamburgerBtn = document.getElementById('hamburger-icon');
+const closeBtn = document.getElementById('close-icon');
+
+closeBtn.onclick = () => {
+  sideBar.style.transform = 'translateX(-100%)';
+}
+hamburgerBtn.onclick = () => {
+  sideBar.style.transform = 'translateX(0)';
+}
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1250) {
+    sideBar.style.transform = 'translateX(0)';
+    sideBar.style.width = '25vw';
+    sideBar.style.position = 'static';
+  }
+  else {
+    sideBar.style.transform = 'translateX(-100%)';
+    sideBar.style.width = '100vw';
+    sideBar.style.position = 'absolute';
+  }
+});

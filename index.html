@@ -12,16 +12,19 @@
     <div class="container flex">
       <div class="left">
         <div class="home bg-grey rounded">
-          <img src="./images/logo.svg" alt="logo" class="invert" />
-          <ul>
-            <li>
-              <img src="./images/home.svg" alt="home" class="invert" /> Home
-            </li>
-            <li>
-              <img src="./images/search.svg" alt="search" class="invert" />
-              Search
-            </li>
-          </ul>
+          <img class="main-logo invert" src="./images/logo.svg" alt="logo"/>
+          <div>
+            <ul>
+              <li>
+                <img src="./images/home.svg" alt="home" class="invert" /> Home
+              </li>
+              <li>
+                <img src="./images/search.svg" alt="search" class="invert" />
+                Search
+              </li>
+            </ul>
+            <img class="invert" id="close-icon" src="./images/close.svg" alt="close_icon">
+          </div>
         </div>
         <div class="library bg-grey rounded">
           <div class="heading">
@@ -70,12 +73,13 @@
         <div class="area bg-grey rounded">
             <div class="header">
                 <div class="nav">
+                    <img class="invert" id="hamburger-icon" src="./images/hamburger.svg" alt="hamburger_icon">
                     <img class="invert" src="./images/left.svg" alt="left_icon">
                     <img class="invert" src="./images/right.svg" alt="right_icon">
                 </div>
                 <div class="buttons">
-                    <button>Signup</button>
-                    <button>Login</button>
+                    <button class="signup-btn">Signup</button>
+                    <button class="login-btn">Login</button>
                 </div>
             </div>
             <div class="spotify-playlist">
