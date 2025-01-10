@@ -1,6 +1,9 @@
 let songBox = document.querySelector(".song-box");
 let playPauseBtn = document.getElementById('play-pause-btn');
-
+let currentSongTitleBox = document.querySelector('.current-song-title');
+let curTimeBox = document.querySelector('.cur-time');
+let totalTimeBox = document.querySelector('.total-time');
+let thumb = document.querySelector('.thumb');
 
 var currentSong = new Audio();
 
@@ -26,9 +29,31 @@ async function getSongUrls() {
     });
 }
 
+function formatTime(time) {
+  let sec = Math.floor(time);
+  let min = Math.floor(sec / 60);
+  sec = sec % 60
+  // console.log(min, sec);
+  
+  return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+}
+
 function playSong(songUrl) {
   currentSong.src = songUrl;
+  currentSong.load();
   currentSong.play();
+  playPauseBtn.src = "./images/pause-circle.svg"
+  currentSongTitleBox.innerHTML = songUrl.split('/audios/')[1].replaceAll('-', ' ');
+  curTimeBox.innerHTML = '00:00';
+  
+  // time update logic
+  currentSong.addEventListener('loadedmetadata', (e) => {
+    currentSong.addEventListener('timeupdate', (e) => {
+      curTimeBox.innerHTML = formatTime(currentSong.currentTime);
+      thumb.style.left = `${currentSong.currentTime * 100 / currentSong.duration}%`;
+    });
+    totalTimeBox.innerHTML = formatTime(currentSong.duration);
+  })
 }
 
 
@@ -38,18 +63,19 @@ async function main() {
 
     // Adding songs name to song
     for (let i = 0; i < songUrls.length; i++) {
+        const songUrl = songUrls[i];
+        const songName = songUrl.split('/audios/')[1].replaceAll('-', ' ');
         const songEntry = document.createElement('span');
         songEntry.innerHTML = `
                     <img src="./images/songIcon.svg" alt="song-icon" class="invert">
                     <span>${i + 1}.</span>
-                    <span class="song-title">${songUrls[i].replace('http://127.0.0.1:3000/audios/', '').replaceAll('-', ' ').toUpperCase()}</span>
+                    <span class="song-title">${songName}</span>
                     <span>Play Now</span>
                     <img src="./images/playIcon.svg" alt="play-icon" class="invert">`
         songEntry.className = "song-entry";
 
         songEntry.addEventListener('click', (e) => {
           playSong(songUrls[i]);
-          playPauseBtn.src = "./images/pause-circle.svg"
         })
 
         songBox.appendChild(songEntry);
