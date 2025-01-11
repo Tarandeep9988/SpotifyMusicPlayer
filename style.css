@@ -19,7 +19,8 @@ body {
 .left {
     width: 25vw;
     padding: 10px;
-    height: 100%;
+    height: calc(100% - 10px);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -67,7 +68,6 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 10px;
 }
 .left .heading img {
@@ -80,6 +80,7 @@ body {
     padding-left: 10px;
 }
 .song-box {
+    max-height: 70vh;
     flex-grow: 1;
     overflow: auto;
     display: flex;
@@ -107,21 +108,6 @@ body {
     width: 40px;
 }
 
-
-.left .footer {
-    display: flex;
-    font-size: 10px;
-    gap: 10px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    overflow: auto;
-}
-.left .footer a{
-    color: grey;
-}
-.left .footer span {
-    font-size: 10px;
-}
 .right {
     height: 100%;
     box-sizing: border-box;
@@ -281,7 +267,6 @@ body {
 
 .control-btns {
     width: 100%;
-    border: 2px solid blue;
     display: flex;
     align-items: center;
     justify-content: center;

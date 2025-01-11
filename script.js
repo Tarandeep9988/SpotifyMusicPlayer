@@ -65,7 +65,7 @@ async function main() {
     // Adding songs name to song
     for (let i = 0; i < songUrls.length; i++) {
         const songUrl = songUrls[i];
-        const songName = songUrl.split('/audios/')[1].replaceAll('-', ' ');
+        const songName = songUrl.split('/audios/')[1].replaceAll('-', ' ').replaceAll('%20', ' ');
         const songEntry = document.createElement('span');
         songEntry.innerHTML = `
                     <img src="./images/songIcon.svg" alt="song-icon" class="invert">
