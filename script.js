@@ -167,6 +167,14 @@ async function main() {
       songIndex = (songIndex + 1) % songUrls.length;
       playSong(songUrls[songIndex]);
     })
+
+    // spacebar play pause
+    document.addEventListener('keydown', (e) =>{
+      e.preventDefault();
+      if (e.key = ' ') {
+        playPauseBtn.dispatchEvent(new Event('click'));
+      }
+    });
 }
 
 main();

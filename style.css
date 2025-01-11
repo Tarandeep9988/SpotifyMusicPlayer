@@ -274,10 +274,10 @@ body {
     position: relative;
 }
 
-.control-btns > img {
+.control-btns > div > img {
     width: 30px;
 }
-.control-btns > img:hover {
+.control-btns >div > img:hover {
     cursor: pointer;
 }
 
@@ -317,5 +317,22 @@ body {
     }
     #close-icon {
         display: block;
+    }
+    .playbar {
+        bottom: 60px;
+    }
+    .volume {
+        position: static;
+    }
+    .control-btns {
+        margin-top: -10px;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .control-btns > div:first-child > img {
+        width: 40px;
+    }
+    .control-btns > div:nth-child(2) > img {
+        width: 20px;
     }
   }
