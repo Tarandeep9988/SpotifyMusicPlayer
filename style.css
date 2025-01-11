@@ -243,6 +243,7 @@ body {
     height: 2px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .thumb {
     border-radius: 50%;

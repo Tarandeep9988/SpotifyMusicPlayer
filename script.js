@@ -3,12 +3,15 @@ let playPauseBtn = document.getElementById('play-pause-btn');
 let currentSongTitleBox = document.querySelector('.current-song-title');
 let curTimeBox = document.querySelector('.cur-time');
 let totalTimeBox = document.querySelector('.total-time');
+let seekBar = document.querySelector('.seekbar');
 let thumb = document.querySelector('.thumb');
 let volumeBar = document.getElementById('volume');
 let volumeIcon = document.getElementById('volume-icon');
 
 var currentSong = new Audio();
 var songIndex = null;
+let preVol = 0.5;
+currentSong.volume = preVol;
 
 async function getSongUrls() {
     return fetch(`./audios/`)
@@ -40,12 +43,15 @@ function formatTime(time) {
   return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
 
+function getNameFromUrl(songUrl) {
+  return songUrl.split('/audios/')[1].replaceAll('-', ' ').replaceAll('%20', ' ').replaceAll('_', ' ');
+}
 function playSong(songUrl) {
   currentSong.src = songUrl;
   currentSong.load();
   currentSong.play();
   playPauseBtn.src = "./images/pause-circle.svg"
-  currentSongTitleBox.innerHTML = songUrl.split('/audios/')[1].replaceAll('-', ' ');
+  currentSongTitleBox.innerHTML = getNameFromUrl(songUrl);
   curTimeBox.innerHTML = '00:00';
   
   // time update logic
@@ -65,7 +71,7 @@ async function main() {
     // Adding songs name to song
     for (let i = 0; i < songUrls.length; i++) {
         const songUrl = songUrls[i];
-        const songName = songUrl.split('/audios/')[1].replaceAll('-', ' ').replaceAll('%20', ' ');
+        const songName = getNameFromUrl(songUrl);
         const songEntry = document.createElement('span');
         songEntry.innerHTML = `
                     <img src="./images/songIcon.svg" alt="song-icon" class="invert">
@@ -132,8 +138,35 @@ async function main() {
       }
       currentSong.volume = parseInt(vol) / 100;
     })
+    // song mute/unmute logic
+    volumeIcon.addEventListener('click', () => {
+      if (currentSong.volume) {
+        preVol = currentSong.volume;
+        currentSong.volume = 0;
+        volumeIcon.src = './images/volumeMin.svg';
+      }
+      else {
+        volumeBar.value = preVol * 100;
+        volumeBar.dispatchEvent(new Event('input'));
+      }
+    })
 
+    // seekbar logic
+    seekBar.onclick = (e) => {
+      if (currentSong.src) {
+        const width = e.currentTarget.offsetWidth;
+        const xOffset = e.offsetX + 3
+        
+        currentSong.currentTime = currentSong.duration * xOffset / width;
+      }
+    }
 
+    // listening of song ending
+    currentSong.addEventListener('ended', (e) => {
+      currentSong.currentTime = 0;
+      songIndex = (songIndex + 1) % songUrls.length;
+      playSong(songUrls[songIndex]);
+    })
 }
 
 main();
