@@ -114,9 +114,13 @@
             <div class="playbar">
                 <div  class="current-song-title">Song Title</div>
                 <div class="control-btns">
-                    <img class="invert" src="./images/pre.svg" alt="pre-btn">
+                    <img id="pre-song-btn" class="invert" src="./images/pre.svg" alt="pre-btn">
                     <img id="play-pause-btn" class="invert" src="./images/pause-circle.svg" alt="play-pause-btn">
-                    <img class="invert" src="./images/next.svg" alt="">
+                    <img id="next-song-btn" class="invert" src="./images/next.svg" alt="">
+                    <div class="volume">
+                      <img id="volume-icon" class="invert" src="./images/volumeMax.svg" alt="volume-full-icon">
+                      <input min="0" max="100" step="1" type="range" name="volume" id="volume">
+                    </div>
                 </div>
                 <div class="seek-and-time">
                   <div class="seekbar">

@@ -4,12 +4,14 @@ let currentSongTitleBox = document.querySelector('.current-song-title');
 let curTimeBox = document.querySelector('.cur-time');
 let totalTimeBox = document.querySelector('.total-time');
 let thumb = document.querySelector('.thumb');
+let volumeBar = document.getElementById('volume');
+let volumeIcon = document.getElementById('volume-icon');
 
 var currentSong = new Audio();
-
+var songIndex = null;
 
 async function getSongUrls() {
-    return fetch("http://127.0.0.1:3000/audios/")
+    return fetch(`./audios/`)
     .then((res) => res.text())
     .then((songsPage) => {
       let div = document.createElement("div");
@@ -58,8 +60,7 @@ function playSong(songUrl) {
 
 
 async function main() {
-    let songUrls = await getSongUrls();
-
+    var songUrls = await getSongUrls();
 
     // Adding songs name to song
     for (let i = 0; i < songUrls.length; i++) {
@@ -76,6 +77,7 @@ async function main() {
 
         songEntry.addEventListener('click', (e) => {
           playSong(songUrls[i]);
+          songIndex = i;
         })
 
         songBox.appendChild(songEntry);
@@ -97,6 +99,41 @@ async function main() {
         alert("Select a song from library")
       }
     })
+
+
+    // Code for pre and next song
+    const preSongBtn = document.getElementById('pre-song-btn');
+    const nextSongBtn = document.getElementById('next-song-btn');
+
+    preSongBtn.onclick = () => {
+      if (songIndex - 1 >= 0) {
+        songIndex--;
+        playSong(songUrls[songIndex]);
+      }
+    }
+    nextSongBtn.onclick = () => {
+      if (songIndex + 1 < songUrls.length) {
+        songIndex++;
+        playSong(songUrls[songIndex]);
+      }
+    }
+    
+    // volume logic 
+    volumeBar.addEventListener('input', () => {
+      let vol = volumeBar.value;
+      if (vol == 0) {
+        volumeIcon.src = './images/volumeMin.svg';
+      }
+      else if (vol < 50) {
+        volumeIcon.src = './images/volumeAvg.svg';
+      }
+      else {
+        volumeIcon.src = './images/volumeMax.svg';
+      }
+      currentSong.volume = parseInt(vol) / 100;
+    })
+
+
 }
 
 main();
@@ -129,3 +166,7 @@ window.addEventListener('resize', () => {
     sideBar.style.position = 'absolute';
   }
 });
+
+
+
+

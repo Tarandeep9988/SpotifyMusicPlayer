@@ -279,12 +279,38 @@ body {
     justify-content: space-between;
 }
 
+.control-btns {
+    width: 100%;
+    border: 2px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .control-btns > img {
     width: 30px;
 }
 .control-btns > img:hover {
     cursor: pointer;
 }
+
+.volume {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.volume img {
+    width: 30px;
+    cursor: pointer;
+}
+.volume input {
+    cursor: pointer;
+    width: 100px;
+}
+
 
 @media (max-width: 1250px) {
     .left {
