@@ -9,9 +9,11 @@ let volumeBar = document.getElementById("volume");
 let volumeIcon = document.getElementById("volume-icon");
 let cardContainer = document.querySelector(".card-container");
 
+var totalSongs = 0;
 var currentSong = new Audio();
 var songIndex = null;
 let preVol = 0.5;
+var songUrls = {};
 currentSong.volume = preVol;
 
 async function getSongUrls(folder) {
@@ -104,8 +106,8 @@ async function fetchPlaylist() {
 
 
 async function loadPlayList(songsFolder, playlistNumber) {
-    var songUrls = await getSongUrls(songsFolder);
-
+    songUrls = await getSongUrls(songsFolder);
+    totalSongs = songUrls.length;
     songBox.innerHTML = "";
   // Adding songs name to song
   for (let i = 0; i < songUrls.length; i++) {
@@ -162,7 +164,7 @@ async function main() {
     }
   }
   nextSongBtn.onclick = () => {
-    if (songIndex + 1 < songUrls.length) {
+    if (songIndex + 1 < totalSongs) {
       songIndex++;
       playSong(songUrls[songIndex]);
     }
