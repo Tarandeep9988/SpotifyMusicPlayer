@@ -17,7 +17,7 @@ var songUrls = {};
 currentSong.volume = preVol;
 
 async function getSongUrls(folder) {
-  return fetch(`./database/audios/${folder}`)
+  return fetch(`./public/audios/${folder}`)
     .then((res) => res.text())
     .then((songsPage) => {
       let div = document.createElement("div");
@@ -76,7 +76,7 @@ function playSong(songUrl) {
 }
 
 async function fetchPlaylist() {
-  fetch("./database/playlists.json")
+  fetch("./public/playlists.json")
     .then((res) => res.json())
     .then((playLists) => {
       for (let i = 0; i < playLists.length; i++) {
@@ -84,7 +84,7 @@ async function fetchPlaylist() {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-                        <img src="./database/coverPics/${playlist.coverPic}">
+                        <img src="./public/coverPics/${playlist.coverPic}">
                         <button class="play-button">
                             <img src="./images/playIcon.svg" alt="playIcon">
                         </button>
