@@ -1,0 +1,14 @@
+[
+    {
+        "title": "New Punjabi songs",
+        "description": "New Punjabi songs description",
+        "songsFolder": "new songs",
+        "coverPic": "new.jpg"
+    },
+    {
+        "title": "Old Punjabi songs",
+        "description": "Old Punjabi songs description",
+        "songsFolder": "old songs",
+        "coverPic": "old.jpg"
+    }
+]

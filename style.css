@@ -98,11 +98,11 @@ body {
 }
 .song-title {
     padding: 0 10px;
-    flex-grow: 1;
     max-height: 50px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    width: 60%
 }
 .song-entry > img {
     width: 40px;
@@ -182,6 +182,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .card img {
